@@ -3,18 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Vue study project</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<link href="style.css" rel="stylesheet">
+<style>
+    [v-cloak]{
+    display: none;
+}
+</style>
 </head>
 <body>
-    <div id="root"></div>
+    <div class="container">
+        <div id="root"></div>
+    </div>
+   
 
-<template id="apple">
+<template id="apple" v-cloak>
+    <h1 class="display-1 text-secondary" v-once>{{title}}</h1>
 <h1>{{title}}</h1>
 <input type="text" 
-v-on:input="handleChange"
+@input="handleChange"
 v-on:focus="handleChange"
 >
 <br>
-<a v-bind:href="href" target="_blank">Link</a>
+<a v-bind:href="href" target="_blank">Link</a><br>
+<a :href="link2" target="_blank" :text="link2"></a><br><br>
+<button class="btn btn-primary" @click="handleConsole('hello', $event)">handleConsole</button>
+<div class="p-2 console-text" v-html="consoleString"></div>
 </template>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@3.0.2/dist/vue.global.js"></script>
