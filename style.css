@@ -1,0 +1,27 @@
+.fixed_bottom_wrapp
+{
+    z-index: 52;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    font-size: 0;
+    text-align: right;
+    padding-bottom: 20px;
+}
+.fixed_bottom_wrapp .btn
+{
+    visibility: hidden;
+    color: #fff;
+    margin-right: calc(2rem + 10px);
+    transform: translateX(calc(100% + 10px + 2.4rem));
+    transition: opacity .2s ease-in-out 0s,transform .8s cubic-bezier(.165,.84,.44,1) 0s,visibility 0s linear .2s;
+    will-change: opacity,transform;
+}
+.fixed_bottom_wrapp .btn.is_shown
+{
+    visibility: visible;
+    transform: translateX(0);
+    opacity: .9;
+    transition-delay: 0s;
+}
