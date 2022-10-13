@@ -3,11 +3,27 @@ template: "#apple",
 data(){
     return {
         title: "Shabbat Shalom!",
+        title2: "Hello world!",
         href: "https://sd-design.tk/",
         link2: "https://media-church.ru/",
-        consoleString: ""
+        consoleString: "",
+        question: '',
+        answer: 'Questions usually contain a question mark. ;-)'
     }
 },
+watch: {
+    // whenever question changes, this function will run
+    question(newQuestion, oldQuestion) {
+        
+      if (newQuestion.includes('?')) {
+        console.log(oldQuestion + ' | ' + newQuestion)
+        this.getAnswer()
+      }
+      else{
+        console.log(oldQuestion + ' | ' + newQuestion)
+      }
+    }
+  },
 methods:{
     handleChange(e){
        this.title = e.target.value
@@ -15,6 +31,24 @@ methods:{
     handleConsole(stringParam, event){
         this.consoleString = stringParam
         console.log(event)
+    },
+    changeTitle2(){
+        this.title2 = "!dlrow olleH"
+    },
+    async getAnswer() {
+        this.answer = 'Thinking...'
+        try {
+          const res = await fetch('https://yesno.wtf/api')
+          this.answer = (await res.json()).answer
+        } catch (error) {
+          this.answer = 'Error! Could not reach the API. ' + error
+        }
+      }
+},
+computed:{
+    reversedTitle(){
+        console.log("computed")
+        return this.title2.split("").reverse().join("")
     }
 }
 })
@@ -39,10 +73,10 @@ window.addEventListener('scroll', (e) => {
     
     if(scrollPos > 400 && this.oldScroll > this.scrollY) {
         btnUp.classList.add('is_shown')
-        console.log(scrollPos)
+        //console.log(scrollPos)
     } else {
         btnUp.classList.remove('is_shown')
-        console.log(scrollPos)
+        //console.log(scrollPos)
     }
     this.oldScroll = this.scrollY;
   })

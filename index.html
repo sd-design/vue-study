@@ -34,6 +34,17 @@ v-on:focus="handleChange"
 <a :href="link2" target="_blank" @click.prevent="handleConsole('Prevent', $event)">Prevent link</a><br><br>
 <button class="btn btn-primary" @click="handleConsole('hello', $event)">handleConsole</button>
 <div class="p-2 console-text" v-html="consoleString"></div>
+<div class="border mb-5 p-3">
+    <h2>{{reversedTitle}}</h2>
+    <button class="btn btn-success" @click="changeTitle2">return title 2</button>
+</div>
+<div class="border mb-5 p-3">
+    <p>
+        Ask a yes/no question:
+        <input v-model="question" />
+      </p>
+      <p>{{ answer }}</p>
+</div>
 </template>
 <div class="container mt-5">
     <p>
