@@ -2,13 +2,15 @@ const app = Vue.createApp({
 template: "#apple",
 data(){
     return {
-        title: "Shabbat Shalom!",
+        title: "Вводная часть!",
         title2: "Hello world!",
         href: "https://sd-design.tk/",
         link2: "https://media-church.ru/",
         consoleString: "",
         question: '',
-        answer: 'Questions usually contain a question mark. ;-)'
+        answer: 'Questions usually contain a question mark. ;-)',
+        isActive: true,
+        isShown: true
     }
 },
 watch: {
@@ -50,6 +52,11 @@ computed:{
         console.log("computed")
         return this.title2.split("").reverse().join("")
     }
+},
+mounted(){
+  const block = this.$refs['block']
+
+  console.log(block.textContent)
 }
 })
 
