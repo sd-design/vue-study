@@ -1,3 +1,8 @@
+html, body{
+    color:#fff;
+    background-color: black;
+}
+
 .fixed_bottom_wrapp
 {
     z-index: 52;
