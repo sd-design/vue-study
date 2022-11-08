@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Component Vue JS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container p-3">
+        <h4 class="display-4">Components</h4>
+        <div id="root">
+            
+        </div>
+    </div>
+    <template id="app">
+            <div class="wrapper">
+                <greeting-item></greeting-item>
+                <greeting-item></greeting-item>
+                <greeting-item></greeting-item>
+            </div>        
+    </template>
+
+    <template id="greeting-item">
+        <div class='border p-3 mt-2'><h5>{{title}}</h5>
+        <button class="btn btn-primary" @click="changeTitle">change title</button>
+        </div>
+    </template>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.0.2/dist/vue.global.js"></script>
+<script src="/js/components.js"></script>
+</body>
+</html>
